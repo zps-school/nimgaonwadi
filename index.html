@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी</title>
+    <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #004085;
+            color: white;
+            padding: 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 180px;
+            position: relative;
+            padding-right: 50px; /* Space for navigation */
+        }
+        header img {
+            max-height: 180px;
+            margin-right: 15px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            right: 20px;
+            top: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            background-color: #002752;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            border: 2px solid white;
+            width: 200px; /* Set fixed width */
+            text-align: center; /* Center text inside button */
+        }
+
+        /* Main Content */
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 700px;
+            height: 350px;
+            margin: 15px;
+            border-radius: 7px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #e9ecef;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 2px solid #004085;
+            text-align: center;
+        }
+        .contact h2 {
+            color: #004085;
+        }
+        .contact p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        /* PDF Page */
+        .pdf-page {
+            padding: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        iframe {
+            width: 80%;
+            height: 600px;
+            border: none;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #004085;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <img src="logo.jpg" alt="School Logo">
+        <h1>जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी</h1>
+        <div class="nav-links">
+            <a href="javascript:void(0);" onclick="showHome()">🏠 मुख्यपृष्ठ</a>
+            <a href="javascript:void(0);" onclick="showPDFPage()">माहिती अधिकार PDF पाहा</a>
+        </div>
+    </header>
+
+    <!-- Main Content Page -->
+    <div id="home-page" class="container">
+        <p><strong>शाळेचे नाव:</strong> जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी</p>
+        <p><strong>तालुका:</strong> राहाता</p>
+        <p><strong>जिल्हा:</strong> अहिल्यानगर</p>
+        <p><strong>UDISE कोड:</strong> 27261002902</p>
+        <p><strong>पिन कोड:</strong> 423109</p>
+
+        <div class="gallery">
+            <h2>फोटो गॅलरी</h2>
+            <img src="image1.jpg" alt="School Event 1">
+            <img src="image2.jpg" alt="School Event 2">
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact">
+            <h2>संपर्क माहिती</h2>
+            <p><strong>शाळेचा पत्ता:</strong> जिल्हा परिषद प्राथमिक शाळा, गाव: निमगाववाडी, तालुका: राहाता, जिल्हा: अहिल्यानगर</p>
+            <p><strong>पिन कोड:</strong> 423109</p>
+            <p><strong>संपर्क व्यक्ती:</strong> श्रीमती भोसले सुलभा नामदेव</p>
+            <p><strong>फोन नंबर:</strong> +91 9420334700</p>
+            <p><strong>ई-मेल:</strong> <a href="mailto:zps.nimgaonwadi@gmail.com">zps.nimgaonwadi@gmail.com</a></p>
+        </div>
+
+        <!-- PDF Page Navigation Link in Main Page -->
+        <div class="nav-links">
+            <a href="javascript:void(0);" onclick="showPDFPage()">माहिती अधिकार PDF पाहा</a>
+        </div>
+    </div>
+
+    <!-- PDF Page -->
+    <div id="pdf-page" class="pdf-page">
+        <h2>माहिती अधिकार - जि.प.प्राथ.शाळा निमगाववाडी</h2>
+        <iframe src="info.pdf" title="माहिती अधिकार PDF"></iframe>
+        <p>PDF लोड होत नसेल तर, खालील लिंक वापरून डाउनलोड करा:</p>
+        <a href="info.pdf" download style="color: blue; text-decoration: underline;">PDF डाउनलोड करा</a>
+        <div class="nav-links">
+            <a href="javascript:void(0);" onclick="showHome()">मुख्यपृष्ठावर परत जा</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 जिल्हा परिषद प्राथमिक शाळा | सर्व हक्क राखीव
+    </footer>
+
+    <script>
+        // JavaScript for switching between pages
+        function showHome() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('pdf-page').style.display = 'none';
+        }
+
+        function showPDFPage() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('pdf-page').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
