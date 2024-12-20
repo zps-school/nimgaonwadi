@@ -23,7 +23,6 @@
             justify-content: space-between;
             height: 180px;
             position: relative;
-            padding-right: 50px; /* Space for navigation */
         }
         header img {
             max-height: 180px;
@@ -35,14 +34,27 @@
             text-align: center;
             flex-grow: 1;
         }
+        header .return-nav {
+            position: absolute;
+            right: 20px;
+            top: 25px;
+        }
+        header .return-nav a {
+            text-decoration: none;
+            color: white;
+            background-color: #002752;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            border: 2px solid white;
+            text-align: center;
+        }
 
         /* Navigation Links */
         .nav-links {
             display: flex;
-            gap: 10px;
-            position: absolute;
-            right: 20px;
-            top: 25px;
+            justify-content: center;
+            margin: 20px 0;
         }
         .nav-links a {
             text-decoration: none;
@@ -52,8 +64,10 @@
             border-radius: 5px;
             font-size: 1.1em;
             border: 2px solid white;
-            width: 200px; /* Set fixed width */
-            text-align: center; /* Center text inside button */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         /* Main Content */
@@ -109,6 +123,13 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Visitor Counter */
+        #visitor-counter {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
@@ -116,12 +137,13 @@
     <header>
         <img src="logo.jpg" alt="School Logo">
         <h1>जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी</h1>
-        <div class="nav-links">
+        <div class="return-nav">
             <a href="javascript:void(0);" onclick="showHome()">🏠 मुख्यपृष्ठ</a>
-            <a href="javascript:void(0);" onclick="showPDFPage()">माहिती अधिकार PDF पाहा</a>
         </div>
     </header>
-
+        <div class="nav-links">
+            <a href="javascript:void(0);" onclick="showPDFPage()">👉 माहिती अधिकार PDF पाहा</a>
+        </div>
     <!-- Main Content Page -->
     <div id="home-page" class="container">
         <p><strong>शाळेचे नाव:</strong> जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी</p>
@@ -136,19 +158,20 @@
             <img src="image2.jpg" alt="School Event 2">
         </div>
 
+
         <!-- Contact Section -->
         <div class="contact">
             <h2>संपर्क माहिती</h2>
-            <p><strong>शाळेचा पत्ता:</strong> जिल्हा परिषद प्राथमिक शाळा, गाव: निमगाववाडी, तालुका: राहाता, जिल्हा: अहिल्यानगर</p>
+            <p><strong>शाळेचा पत्ता:</strong> जिल्हा परिषद प्राथमिक शाळा,निमगाववाडी, तालुका: राहाता, जिल्हा: अहिल्यानगर</p>
             <p><strong>पिन कोड:</strong> 423109</p>
             <p><strong>संपर्क व्यक्ती:</strong> श्रीमती भोसले सुलभा नामदेव</p>
             <p><strong>फोन नंबर:</strong> +91 9420334700</p>
             <p><strong>ई-मेल:</strong> <a href="mailto:zps.nimgaonwadi@gmail.com">zps.nimgaonwadi@gmail.com</a></p>
         </div>
 
-        <!-- PDF Page Navigation Link in Main Page -->
-        <div class="nav-links">
-            <a href="javascript:void(0);" onclick="showPDFPage()">माहिती अधिकार PDF पाहा</a>
+        <!-- Visitor Counter Section -->
+        <div id="visitor-counter">
+            <p> या वेबसाइटला भेट दिलेल्या एकूण अभ्यागतांची संख्या: <span id="visit-count">0</span></p>
         </div>
     </div>
 
@@ -158,8 +181,8 @@
         <iframe src="info.pdf" title="माहिती अधिकार PDF"></iframe>
         <p>PDF लोड होत नसेल तर, खालील लिंक वापरून डाउनलोड करा:</p>
         <a href="info.pdf" download style="color: blue; text-decoration: underline;">PDF डाउनलोड करा</a>
-        <div class="nav-links">
-            <a href="javascript:void(0);" onclick="showHome()">मुख्यपृष्ठावर परत जा</a>
+        <div class="return-nav">
+            <a href="javascript:void(0);" onclick="showHome()">🏠 मुख्यपृष्ठावर परत जा</a>
         </div>
     </div>
 
@@ -179,6 +202,22 @@
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('pdf-page').style.display = 'block';
         }
+
+        // Visitor Counter Logic
+        const visitCountKey = 'visit_count';
+        let visitCount = localStorage.getItem(visitCountKey);
+
+        if (visitCount === null) {
+            visitCount = 1; // First visit
+        } else {
+            visitCount = parseInt(visitCount) + 1;
+        }
+
+        // Update the local storage with new count
+        localStorage.setItem(visitCountKey, visitCount);
+
+        // Update the page with the visit count
+        document.getElementById('visit-count').textContent = visitCount;
     </script>
 </body>
 </html>
